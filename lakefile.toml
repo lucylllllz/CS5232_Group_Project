@@ -1,0 +1,17 @@
+name = "slidingwindow"
+version = "0.1.0"
+defaultTargets = ["slidingwindow"]
+
+[[lean_lib]]
+name = "Slidingwindow"
+
+[[lean_exe]]
+name = "slidingwindow"
+root = "Main"
+
+[package]
+name = "slidingwindow"
+version = "0.1.0"
+
+[dependencies]
+Std = { git = "https://github.com/leanprover/std4" }
