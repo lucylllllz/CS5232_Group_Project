@@ -8,23 +8,30 @@ The verification is carried out primarily using **Veil (Lean-based)**, with an a
 
 ## 📂 Project Structure
 
-### `veil/`
-Contains the Veil model and proofs:
-- State definition  
-- Transition relation (`StepRel`)  
-- Invariants and correctness theorems  
+```
+.
+├── dafny/
+│   └── SlidingWindow.dfy
+├── lean/
+│   └── SlidingWindow.lean
+```
 
-### `dafny/`
-Contains the Dafny implementation:
-- Sliding window algorithm  
-- Loop invariants  
-- Postconditions (safety and optimality)  
+- `dafny/SlidingWindow.dfy`  
+  Dafny implementation of the sliding window algorithm, including:
+  - Loop invariants  
+  - Safety and optimality specifications  
+
+- `lean/SlidingWindow.lean`  
+  Veil/Lean formalisation, including:
+  - State-transition model  
+  - Invariants  
+  - Proofs of correctness  
 
 ---
 
 ## ⚙️ Requirements
 
-### For Veil / Lean
+### For Lean / Veil
 - Lean 4  
 - Veil framework (installed or included)  
 
@@ -36,32 +43,43 @@ Contains the Dafny implementation:
 
 ## ▶️ How to Run
 
-### 1. Veil Verification
+### 1. Lean / Veil Verification
 
-Navigate to the Veil directory:
+Navigate to the Lean directory:
 
 ```bash
-cd veil
+cd lean
+```
 
-Build and verify:
+Run verification:
 
+```bash
 lake build
+```
 
 Expected behavior:
-
-The proof compiles successfully
-All theorems (invariants, safety, optimality) are verified
+- The file compiles successfully  
+- All proofs are verified  
 
 Typical runtime:
+- A few seconds  
 
-A few seconds on a standard machine
-2. Dafny Verification
+---
+
+### 2. Dafny Verification
 
 Navigate to the Dafny directory:
 
+```bash
 cd dafny
+```
 
 Run the verifier:
 
-dafny /compile:0 sliding_window.dfy
+```bash
+dafny /compile:0 SlidingWindow.dfy
+```
 
+Expected behavior:
+- All verification conditions are discharged  
+- No assertion failures  
