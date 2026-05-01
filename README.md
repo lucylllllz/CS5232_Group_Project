@@ -104,9 +104,9 @@ A fully constructive proof of these properties is left for future work.
 
 | File | Description |
 | --- | --- |
-| `SlidingWindow.lean` | Core definitions, state transitions, and proofs |
-| `Baseline.lean` | Brute-force reference implementation |
-| `Demo.lean` | Executable tests and cross-checks |
+| `lean/SlidingWindow.lean` | Core definitions, state transitions, and proofs |
+| `lean/Baseline.lean` | Brute-force reference implementation |
+| `Demo/Demo.lean` | Executable tests and cross-checks |
 
 ---
 
