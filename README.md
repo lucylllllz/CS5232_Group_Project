@@ -17,105 +17,75 @@ prove correctness properties of the optimized algorithm.
 
 ---
 
-## Formal Specification
+# Build Guide
 
-We model substrings using index intervals `s[i:j]`. A substring is valid if:
-
-- `i ≤ j ≤ s.length`
-- the number of distinct characters in `s[i:j]` is at most `k`
-
-The desired result is the maximum length among all valid substrings.
-
----
-
-## Reference Implementation
-
-We include a simple brute-force algorithm that:
-
-- enumerates all substrings
-- checks the validity condition directly
-- returns the maximum length
-
-Although inefficient, this implementation closely follows the mathematical
-definition and serves as a reliable reference for validation.
-
----
-
-## Sliding Window Algorithm
-
-The optimized solution maintains a dynamic window over the string. The state
-consists of:
-
-- `l`: left boundary of the window
-- `r`: right boundary
-- `max_len`: best length found so far
-- `counts`: character frequency information
-
-At each step:
-
-- the window expands by moving `r`
-- if the validity condition is violated, the window shrinks by moving `l`
-- `max_len` is updated whenever a valid window is observed
-
----
-
-## Proof Strategy
-
-We verify correctness by reasoning about the evolution of the algorithm state.
-
-The proof relies on maintaining invariants that guarantee:
-
-- **Safety**: the recorded `max_len` is always an upper bound for all valid substrings
-- **Tightness**: there exists a valid substring whose length equals `max_len`
-
-Together, these properties ensure that the algorithm computes the optimal result.
-
----
-
-## Demo and Validation
-
-We provide an executable implementation (`solve`) that simulates the algorithm.
-
-To validate correctness:
-
-- we run the sliding window algorithm on multiple test cases
-- we compare the outputs with the brute-force reference implementation
-
-The results match across all tested inputs, demonstrating consistency between
-the optimized algorithm and the specification.
-
----
-
-## Limitations
-
-Some low-level properties connecting the concrete data structure (`counts`)
-and the abstract definition of distinct elements are assumed as axioms.
-
-For example:
-
-- the correspondence between the size of `counts` and the distinct character count
-- monotonicity properties of substring distinctness
-
-A fully constructive proof of these properties is left for future work.
-
----
-
-## Project Structure
-
-| File | Description |
-| --- | --- |
-| `lean/SlidingWindow.lean` | Core definitions, state transitions, and proofs |
-| `lean/Baseline.lean` | Brute-force reference implementation |
-| `Demo/Demo.lean` | Executable tests and cross-checks |
-
----
-
-## How to Run Examples
+Start with:
 
 ```bash
 lake build Project
+```
+
+## If Error 1: ProofWidgets not up-to-date
+
+Run:
+
+```bash
+lake exe cache get
+lake build Project
+```
+
+---
+
+## If Error 2: bad import 'CaseStudies.Velvet.Std'
+
+Open:
+
+```text
+Project/SlidingWindow.lean
+```
+
+Delete:
+
+```lean
+import CaseStudies.Velvet.Std
+import CaseStudies.TestingUtil
+```
+
+Then run:
+
+```bash
+lake clean
+lake build Project
+```
+
+---
+
+## If Error 3: unknown module prefix 'Veil'
+
+Check `lakefile.toml` contains:
+
+```toml
+[[require]]
+name = "veil"
+git = "https://github.com/verse-lab/veil.git"
+rev = "main"
+```
+
+Then run:
+
+```bash
+lake update
+lake build Project
+```
+
+---
+
+## Run Demo
+
+```bash
 lake env lean Project/Demo.lean
 ```
+
 
 ## Examples
 
