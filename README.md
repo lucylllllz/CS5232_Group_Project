@@ -5,6 +5,9 @@ with at most k distinct characters, and focuses on formally verifying a sliding
 window solution using Lean.
 
 ---
+### If you encounter difficulties deploying the current version, you can switch to the deployment_friendly_version branch and follow the deployment guide in that branch to run the code.
+
+---
 
 ## Overview
 
