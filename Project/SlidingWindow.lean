@@ -2,8 +2,8 @@ import Veil
 import Auto
 import Ssreflect.Lang
 import LoVe.LoVelib
-import CaseStudies.Velvet.Std
-import CaseStudies.TestingUtil
+-- import CaseStudies.Velvet.Std
+-- import CaseStudies.TestingUtil
 
 import Mathlib.Tactic
 import Mathlib.Data.List.Basic

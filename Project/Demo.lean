@@ -1,5 +1,5 @@
 import Project.SlidingWindow
-import Project.Baseline
+import Project.BruteForce_Base
 
 -- ----------------------------------------
 -- Run sliding window

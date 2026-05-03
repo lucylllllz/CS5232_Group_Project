@@ -1,17 +1,36 @@
 name = "slidingwindow"
 version = "0.1.0"
-defaultTargets = ["slidingwindow"]
+keywords = ["math"]
+defaultTargets = ["LoVe", "PraVDA", "Project"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.23.0"
+
+[[require]]
+name = "Loom"
+git = "https://github.com/verse-lab/loom.git"
+rev = "master"
+
+[[require]]
+name = "veil"
+git = "https://github.com/verse-lab/veil.git"
+rev = "v4.23.0"
+
+[[require]]
+name = "ssreflect"
+git = "https://github.com/verse-lab/lean-ssr.git"
+rev = "v4.23.0"
 
 [[lean_lib]]
-name = "Slidingwindow"
+name = "PraVDA"
 
-[[lean_exe]]
-name = "slidingwindow"
-root = "Main"
+[[lean_lib]]
+name = "LoVe"
 
-[package]
-name = "slidingwindow"
-version = "0.1.0"
-
-[dependencies]
-Std = { git = "https://github.com/leanprover/std4" }
+[[lean_lib]]
+name = "Project"
