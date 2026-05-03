@@ -6,7 +6,7 @@ window solution using Lean.
 
 ---
 
-## Overview
+## Overview 😊
 
 Given a string `s` and an integer `k`, the goal is to compute the maximum length
 of a substring such that the number of distinct characters in the substring
@@ -17,7 +17,7 @@ prove correctness properties of the optimized algorithm.
 
 ---
 
-# Build Guide
+# Build Guide 🌍
 
 Start with:
 
@@ -36,51 +36,7 @@ lake build Project
 
 ---
 
-## If Error 2: bad import 'CaseStudies.Velvet.Std'
-
-Open:
-
-```text
-Project/SlidingWindow.lean
-```
-
-Delete:
-
-```lean
-import CaseStudies.Velvet.Std
-import CaseStudies.TestingUtil
-```
-
-Then run:
-
-```bash
-lake clean
-lake build Project
-```
-
----
-
-## If Error 3: unknown module prefix 'Veil'
-
-Check `lakefile.toml` contains:
-
-```toml
-[[require]]
-name = "veil"
-git = "https://github.com/verse-lab/veil.git"
-rev = "main"
-```
-
-Then run:
-
-```bash
-lake update
-lake build Project
-```
-
----
-
-## Run Demo
+## Run Demo ✨ 👋
 
 ```bash
 lake env lean Project/Demo.lean
